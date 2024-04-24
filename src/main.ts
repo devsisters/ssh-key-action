@@ -82,7 +82,17 @@ function buildFilesToCreate(dirName: string): FileInfo[] {
     const knownHosts = core.getInput("known_hosts", {
         required: true,
     });
-    const config = core.getInput("config");
+    const host = core.getInput("host");
+    const hostName = core.getInput("hostName");
+    const identityFile = core.getInput("identityFile");
+    const identitiesOnly = core.getInput("identitiesOnly");
+
+    const config = `
+Host ${host}
+  HostName ${hostName}
+  IdentityFile ${identityFile}
+  IdentitiesOnly ${identitiesOnly}`.trim();
+
     const ifKeyExists = core.getInput("if_key_exists");
 
     // files to be created

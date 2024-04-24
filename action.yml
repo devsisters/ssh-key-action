@@ -17,10 +17,18 @@ inputs:
     description: "public keys of SSH servers"
     required: true
     default: ""
-  config:
-    description: "SSH config"
-    required: false
-    default: ""
+  host:
+    description: ""
+    required: true
+  hostName:
+    description: ""
+    required: true
+  identityFile:
+    description: ""
+    required: true
+  identitiesOnly:
+    description: ""
+    required: true
   if_key_exists:
     description: "replace / ignore / fail"
     required: false
